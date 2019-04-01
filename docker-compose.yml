@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./code:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - homestead
+
+  php:
+    #image: php:fpm
+    image: laratest
+    volumes:
+      - ./code:/var/www
+      - ./docker/php-fpm/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
+    networks:
+      - homestead
+
+networks:
+  homestead:
