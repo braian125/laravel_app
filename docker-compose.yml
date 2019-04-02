@@ -41,8 +41,15 @@ services:
       MYSQL_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - homestead
 
 networks:
   homestead:
+
+volumes:
+  dbdata:
+    driver: local
