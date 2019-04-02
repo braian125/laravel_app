@@ -40,6 +40,12 @@ php_admin_flag[log_errors] = on
 php_flag[display_errors] = off
 ```
 
+# Docker Image
+
+```sh
+docker build -t laravel_app .
+```
+
 # Docker Compose
 
 ```
