@@ -3,12 +3,13 @@
 Docker image for laravel projects.
 
 ```sh
-	mkdir container && cd container
-    mkdir -p docker/nginx/conf.d 
-    mkdir docker/php-fpm 
-    mkdir code
-    vi docker/nginx/conf.d/site.conf
-    vi docker/php-fpm/log.conf
+git clone https://github.com/braian125/laravel_app.git
+cd laravel_app
+mkdir -p docker/nginx/conf.d 
+mkdir docker/php-fpm 
+mkdir code
+touch docker/nginx/conf.d/site.conf
+touch docker/php-fpm/log.conf
 ```
 
 # site.conf
@@ -39,3 +40,8 @@ php_flag[display_errors] = off
 ```
 
 docker-compose up
+winpty docker exec -it laravelapp_php_1 composer create-project --prefer-dist laravel/laravel blog
+
+    - winpty: windows users using git-bash
+    
+    - laravelapp_php_1: container name or container id
