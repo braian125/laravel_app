@@ -5,14 +5,16 @@ Docker image for laravel projects.
 ```sh
 git clone https://github.com/braian125/laravel_app.git
 cd laravel_app
-mkdir -p docker/nginx/conf.d 
-mkdir docker/php-fpm 
+mkdir -p docker/nginx/conf.d
+mkdir docker/php-fpm
+mkdir docker/mysql
 mkdir code
 touch docker/nginx/conf.d/site.conf
 touch docker/php-fpm/log.conf
+touch docker/mysql/my.cnf
 ```
 
-# site.conf
+# docker/nginx/conf.d/site.conf
 ```
 server {
     listen 80;
@@ -38,10 +40,17 @@ server {
 ```
 - blog: change by project name
 
-# log.conf
+# docker/php-fpm/log.conf
 ```
 php_admin_flag[log_errors] = on
 php_flag[display_errors] = off
+```
+
+# docker/mysql/my.cnf
+```
+[mysqld]
+general_log = 1
+general_log_file = /var/lib/mysql/general.log
 ```
 
 # Docker Image
