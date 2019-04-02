@@ -40,6 +40,7 @@ php_flag[display_errors] = off
 ```
 
 docker-compose up
+
 winpty docker exec -it laravelapp_php_1 composer create-project --prefer-dist laravel/laravel blog
 
     - winpty: windows users using git-bash
