@@ -13,7 +13,7 @@ services:
 
   php:
     #image: php:fpm
-    image: laratest
+    image: laravel_app
     volumes:
       - ./code:/var/www
       - ./docker/php-fpm/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
