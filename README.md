@@ -17,7 +17,7 @@ touch docker/php-fpm/log.conf
 server {
     listen 80;
     server_name php-docker.local;
-    root /var/www/laratest/public;
+    root /var/www/blog/public;
     index index.php index.html;
     error_log  /var/log/nginx/error.log;
     access_log /var/log/nginx/access.log;
@@ -32,6 +32,7 @@ server {
     }
 }
 ```
+- blog: change by project name
 
 # log.conf
 ```
@@ -39,10 +40,17 @@ php_admin_flag[log_errors] = on
 php_flag[display_errors] = off
 ```
 
+# Docker Compose
+
+```
 docker-compose up
-
 winpty docker exec -it laravelapp_php_1 composer create-project --prefer-dist laravel/laravel blog
+```
 
-    - winpty: windows users using git-bash
-    
-    - laravelapp_php_1: container name or container id
+- winpty: windows users using git-bash
+- laravelapp_php_1: container name or container id
+
+# Help commands
+    docker ps
+    winpty docker exec -it laravel_php_1 bash
+    docker-compose down
