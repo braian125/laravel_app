@@ -54,13 +54,13 @@ docker build -t laravel_app .
 
 ```
 docker-compose up
-winpty docker exec -it laravelapp_php_1 composer create-project --prefer-dist laravel/laravel blog
+winpty docker exec -it laravel_app composer create-project --prefer-dist laravel/laravel blog
 ```
 
 - winpty: windows users using git-bash
-- laravelapp_php_1: container name or container id
+- laravel_app: container name or container id
 
 # Help commands
     docker ps
-    winpty docker exec -it laravel_php_1 bash
+    winpty docker exec -it laravel_app bash
     docker-compose down
